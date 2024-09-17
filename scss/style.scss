@@ -1,0 +1,312 @@
+/*-------------------------------------------
+色の設定
+-------------------------------------------*/
+$primary-color: #24292E;
+$white-color: #fff;
+$gray-color: #F5F5F5;
+$footer-bg-color: #333333;
+
+/*-------------------------------------------
+breakpointの設定
+-------------------------------------------*/
+$mq-breakpoints: (
+  lg: 1280px, // パソコン
+  md: 768px,  // タブレット
+  sm: 480px)  // スマホ横向き
+  !default;
+
+/*-------------------------------------------
+Media Queryの設定
+-------------------------------------------*/
+@mixin mq($breakpoint: md, $rule: max, $subtraction: false) {
+  $breakpoint: map_get($mq-breakpoints, $breakpoint);
+
+  @if $rule==max and $subtraction {
+    $breakpoint: $breakpoint - 0.0625;
+  }
+
+  @media screen and (#{$rule}-width: $breakpoint) {
+    @content;
+  }
+}
+
+/*-------------------------------------------
+リセットCSS
+-------------------------------------------*/
+* {
+  font-family: Arial, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  color: $primary-color;
+  box-sizing: border-box;
+  font-size: 10px;
+}
+a {
+  text-decoration: none;
+  transition: all .5s;
+  &::before {
+    transition: all .5s;
+  }
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+ul {
+  list-style: none;
+}
+h2 {
+  font-size: 2.4rem;
+}
+h3 {
+  font-size: 2.0rem;
+}
+p, a, li {
+  font-size: 1.4rem;
+  line-height: 1.8;
+}
+
+/*-------------------------------------------
+共通クラス
+-------------------------------------------*/
+.flex_row {
+  display: flex;
+  flex-direction: row;
+  @include mq(sm) {
+    flex-direction: column;
+  }
+}
+.flex_column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.btn {
+  text-align: center;
+  a {
+    display: inline-block;
+    font-size: 12px;
+    padding: 15px 35px;
+    border: 1px solid $primary-color;
+    box-sizing: border-box;
+    &:hover {
+      background: $primary-color;
+      color: #fff;
+    }
+  }
+}
+
+/*-------------------------------------------
+Html
+-------------------------------------------*/
+html {
+  scroll-behavior: smooth;
+}
+
+/*-------------------------------------------
+Body
+-------------------------------------------*/
+
+/*-------------------------------------------
+Header
+-------------------------------------------*/
+
+/*-------------------------------------------
+MV
+-------------------------------------------*/
+.mv {
+  width: 100%;
+  height: 100vh;
+  background: url(../iamge/mainvisual.jpg) no-repeat center / cover;
+  position: relative;
+  .logo {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
+}
+
+/*-------------------------------------------
+Section
+-------------------------------------------*/
+section {
+  overflow: hidden;
+  margin: 80px auto 0;
+  padding: 0 5%;
+  @include mq(sm) {
+    padding: 0 20px;
+  }
+}
+.section-ttl {
+  text-align: center;
+}
+.section-read {
+  text-align: center;
+  padding: 20px 0 30px;
+}
+
+/*-------------------------------------------
+Feature
+-------------------------------------------*/
+#feature {
+  .feature__item {
+    gap: 0 20px;
+    width: 100%;
+    @include mq(md) {
+      flex-direction: column;
+      align-items: center;
+      gap: 30px 0;
+    }
+    .feature__item__cont {
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      max-width: 510px;
+      align-items: center;
+      justify-content: center;
+      .feature__item__cont__wrap {
+        padding: 15px 30px;
+        background: rgba(0,0,0,0.5);
+        text-align: center;
+        gap: 5px 0;
+        .feature__item-ttl,
+        .feature__item-text {
+          color: $white-color;
+        }
+      }
+    }
+    .feature__item__left {
+      background: url(../iamge/magazine-archive.jpg) no-repeat center / cover;
+    }
+    .feature__item__right {
+      background: url(../iamge/magazine-new.jpg) no-repeat center / cover;
+    }
+  }
+}
+
+/*-------------------------------------------
+Fashion
+-------------------------------------------*/
+#fashion {
+  padding: 60px 5% 300px;
+  background: url(../iamge/fashion.jpg) no-repeat center / cover;
+}
+
+/*-------------------------------------------
+Paper
+-------------------------------------------*/
+#paper {
+  padding: 60px 5%;
+  background-color: $gray-color;
+  gap: 120px 0;
+  @include mq(sm) {
+    gap: 60px;
+  }
+  .paper__item-ttl {
+    padding-bottom: 40px;
+    text-align: center;
+  }
+  .paper__item {
+    max-width: 1000px;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+    &:nth-of-type(odd) {
+      flex-direction: row;
+    }
+    @include mq(md) {
+      flex-direction: column;
+      align-items: center;
+      gap: 40px 0;
+      &:nth-of-type(odd) {
+        flex-direction: column;
+      }
+    }
+    .paper__item-img,
+    .paper__item-introduction {
+      width: calc((100% - 40px) / 2);
+      @include mq(md) {
+        width: 100%;
+      }
+    }
+    .btn {
+      margin-top: 60px;
+    }
+  }
+}
+
+/*-------------------------------------------
+Footer
+-------------------------------------------*/
+footer {
+  .footer__wrapper {
+    padding: 100px 5%;
+    background: $footer-bg-color;
+    @include mq(md) {
+      padding: 30px 20px 60px;
+    }
+    p,a,li {
+      color: $white-color;
+    }
+    .footer__inner {
+      margin: 0 auto;
+      max-width: 1000px;
+      justify-content: space-between;
+      @include mq(md) {
+        flex-direction: column;
+        gap: 30px 0;
+      }
+      .footer-ttl {
+        font-size: 1.4rem;
+        font-weight: bold;
+        padding-bottom: 10px;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+        @include mq(md) {
+          justify-content: center;
+        }
+      }
+      .footer__center {
+        flex-shrink: 0;
+        ul {
+          li {
+            margin-bottom: 3px;
+            &::before {
+              content: "-";
+              padding-right: 2px;
+            }
+            a {
+              font-size: 1.2rem;
+              padding-bottom: 3px;
+              position: relative;
+              &::before {
+                content: "";
+                width: 0;
+                height: 1px;
+                background: $white-color;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+              }
+              &:hover::before {
+                content: "";
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+      .footer__right {
+        width: 310px;
+        .footer__right-text {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+  .copy-right {
+    padding: 30px 0;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}

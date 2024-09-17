@@ -1,0 +1,311 @@
+@charset "UTF-8";
+/*-------------------------------------------
+色の設定
+-------------------------------------------*/
+/*-------------------------------------------
+breakpointの設定
+-------------------------------------------*/
+/*-------------------------------------------
+Media Queryの設定
+-------------------------------------------*/
+/*-------------------------------------------
+リセットCSS
+-------------------------------------------*/
+* {
+  font-family: Arial, "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  color: #24292E;
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.5s;
+}
+a::before {
+  transition: all 0.5s;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+h2 {
+  font-size: 2.4rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+p, a, li {
+  font-size: 1.4rem;
+  line-height: 1.8;
+}
+
+/*-------------------------------------------
+共通クラス
+-------------------------------------------*/
+.flex_row {
+  display: flex;
+  flex-direction: row;
+}
+@media screen and (max-width: 480px) {
+  .flex_row {
+    flex-direction: column;
+  }
+}
+
+.flex_column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btn {
+  text-align: center;
+}
+.btn a {
+  display: inline-block;
+  font-size: 12px;
+  padding: 15px 35px;
+  border: 1px solid #24292E;
+  box-sizing: border-box;
+}
+.btn a:hover {
+  background: #24292E;
+  color: #fff;
+}
+
+/*-------------------------------------------
+Html
+-------------------------------------------*/
+html {
+  scroll-behavior: smooth;
+}
+
+/*-------------------------------------------
+Body
+-------------------------------------------*/
+/*-------------------------------------------
+Header
+-------------------------------------------*/
+/*-------------------------------------------
+MV
+-------------------------------------------*/
+.mv {
+  width: 100%;
+  height: 100vh;
+  background: url(../iamge/mainvisual.jpg) no-repeat center/cover;
+  position: relative;
+}
+.mv .logo {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+/*-------------------------------------------
+Section
+-------------------------------------------*/
+section {
+  overflow: hidden;
+  margin: 80px auto 0;
+  padding: 0 5%;
+}
+@media screen and (max-width: 480px) {
+  section {
+    padding: 0 20px;
+  }
+}
+
+.section-ttl {
+  text-align: center;
+}
+
+.section-read {
+  text-align: center;
+  padding: 20px 0 30px;
+}
+
+/*-------------------------------------------
+Feature
+-------------------------------------------*/
+#feature .feature__item {
+  gap: 0 20px;
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  #feature .feature__item {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px 0;
+  }
+}
+#feature .feature__item .feature__item__cont {
+  aspect-ratio: 1/1;
+  width: 100%;
+  max-width: 510px;
+  align-items: center;
+  justify-content: center;
+}
+#feature .feature__item .feature__item__cont .feature__item__cont__wrap {
+  padding: 15px 30px;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  gap: 5px 0;
+}
+#feature .feature__item .feature__item__cont .feature__item__cont__wrap .feature__item-ttl,
+#feature .feature__item .feature__item__cont .feature__item__cont__wrap .feature__item-text {
+  color: #fff;
+}
+#feature .feature__item .feature__item__left {
+  background: url(../iamge/magazine-archive.jpg) no-repeat center/cover;
+}
+#feature .feature__item .feature__item__right {
+  background: url(../iamge/magazine-new.jpg) no-repeat center/cover;
+}
+
+/*-------------------------------------------
+Fashion
+-------------------------------------------*/
+#fashion {
+  padding: 60px 5% 300px;
+  background: url(../iamge/fashion.jpg) no-repeat center/cover;
+}
+
+/*-------------------------------------------
+Paper
+-------------------------------------------*/
+#paper {
+  padding: 60px 5%;
+  background-color: #F5F5F5;
+  gap: 120px 0;
+}
+@media screen and (max-width: 480px) {
+  #paper {
+    gap: 60px;
+  }
+}
+#paper .paper__item-ttl {
+  padding-bottom: 40px;
+  text-align: center;
+}
+#paper .paper__item {
+  max-width: 1000px;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row-reverse;
+}
+#paper .paper__item:nth-of-type(odd) {
+  flex-direction: row;
+}
+@media screen and (max-width: 768px) {
+  #paper .paper__item {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px 0;
+  }
+  #paper .paper__item:nth-of-type(odd) {
+    flex-direction: column;
+  }
+}
+#paper .paper__item .paper__item-img,
+#paper .paper__item .paper__item-introduction {
+  width: calc((100% - 40px) / 2);
+}
+@media screen and (max-width: 768px) {
+  #paper .paper__item .paper__item-img,
+  #paper .paper__item .paper__item-introduction {
+    width: 100%;
+  }
+}
+#paper .paper__item .btn {
+  margin-top: 60px;
+}
+
+/*-------------------------------------------
+Footer
+-------------------------------------------*/
+footer .footer__wrapper {
+  padding: 100px 5%;
+  background: #333333;
+}
+@media screen and (max-width: 768px) {
+  footer .footer__wrapper {
+    padding: 30px 20px 60px;
+  }
+}
+footer .footer__wrapper p, footer .footer__wrapper a, footer .footer__wrapper li {
+  color: #fff;
+}
+footer .footer__wrapper .footer__inner {
+  margin: 0 auto;
+  max-width: 1000px;
+  justify-content: space-between;
+}
+@media screen and (max-width: 768px) {
+  footer .footer__wrapper .footer__inner {
+    flex-direction: column;
+    gap: 30px 0;
+  }
+}
+footer .footer__wrapper .footer__inner .footer-ttl {
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+footer .footer__wrapper .footer__inner .logo {
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 768px) {
+  footer .footer__wrapper .footer__inner .logo {
+    justify-content: center;
+  }
+}
+footer .footer__wrapper .footer__inner .footer__center {
+  flex-shrink: 0;
+}
+footer .footer__wrapper .footer__inner .footer__center ul li {
+  margin-bottom: 3px;
+}
+footer .footer__wrapper .footer__inner .footer__center ul li::before {
+  content: "-";
+  padding-right: 2px;
+}
+footer .footer__wrapper .footer__inner .footer__center ul li a {
+  font-size: 1.2rem;
+  padding-bottom: 3px;
+  position: relative;
+}
+footer .footer__wrapper .footer__inner .footer__center ul li a::before {
+  content: "";
+  width: 0;
+  height: 1px;
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+footer .footer__wrapper .footer__inner .footer__center ul li a:hover::before {
+  content: "";
+  width: 100%;
+}
+footer .footer__wrapper .footer__inner .footer__right {
+  width: 310px;
+}
+footer .footer__wrapper .footer__inner .footer__right .footer__right-text {
+  font-size: 1.2rem;
+}
+footer .copy-right {
+  padding: 30px 0;
+  font-size: 1.2rem;
+  text-align: center;
+}/*# sourceMappingURL=style.css.map */
