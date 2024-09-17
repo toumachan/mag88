@@ -139,6 +139,7 @@ Feature
 #feature .feature__item {
   gap: 0 20px;
   width: 100%;
+  justify-content: center;
 }
 @media screen and (max-width: 768px) {
   #feature .feature__item {
